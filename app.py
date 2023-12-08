@@ -77,10 +77,10 @@ description_e = """ # Everything mode is NOT recommended.
               """
 
 examples = [
-    ["web_demo/assets/picture1.jpg"],
-    ["web_demo/assets/picture2.jpg"],
-    ["web_demo/assets/picture3.jpg"],
-    ["web_demo/assets/picture4.jpg"],
+    ["assets/picture1.jpg"],
+    ["assets/picture2.jpg"],
+    ["assets/picture3.jpg"],
+    ["assets/picture4.jpg"],
 ]
 
 default_example = examples[0]
