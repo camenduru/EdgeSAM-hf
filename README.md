@@ -1,6 +1,6 @@
 ---
 title: EdgeSAM
-emoji: 🐢
+emoji: 🚀
 colorFrom: pink
 colorTo: yellow
 sdk: gradio
