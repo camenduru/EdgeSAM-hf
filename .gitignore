@@ -42,7 +42,7 @@ yarn.lock
 package-lock.json
 
 # CoreML models
-*.mlpackage
+#*.mlpackage
 
 # Mac
 *DS_Store*
