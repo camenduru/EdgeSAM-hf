@@ -49,7 +49,7 @@ predictor = SamPredictor(sam)
 # Description
 title = "<center><strong><font size='8'>EdgeSAM<font></strong></center>"
 
-description_p = """ # Instructions for point mode [Instructional video](https://huggingface.co/spaces/chongzhou/EdgeSAM/blob/main/assets/point-instructions.mov)
+description_p = """ # Instructions for point mode [[Instructional video](https://huggingface.co/spaces/chongzhou/EdgeSAM/blob/main/assets/point-instructions.mov)]
 
                 1. Upload an image or click one of the provided examples.
                 2. Select the point type.
@@ -60,7 +60,7 @@ description_p = """ # Instructions for point mode [Instructional video](https://
 
               """
 
-description_b = """ # Instructions for box mode [Instructional video](https://huggingface.co/spaces/chongzhou/EdgeSAM/blob/main/assets/box-instructions.mov)
+description_b = """ # Instructions for box mode [[Instructional video](https://huggingface.co/spaces/chongzhou/EdgeSAM/blob/main/assets/box-instructions.mov)]
 
                 1. Upload an image or click one of the provided examples.
                 2. Click twice on the image (diagonal points of the box).
@@ -77,10 +77,22 @@ description_e = """ # Everything mode is NOT recommended.
               """
 
 examples = [
-    ["assets/picture1.jpg"],
-    ["assets/picture2.jpg"],
-    ["assets/picture3.jpg"],
-    ["assets/picture4.jpg"],
+    ["assets/1.jpeg"],
+    ["assets/2.jpeg"],
+    ["assets/3.jpeg"],
+    ["assets/4.jpeg"],
+    ["assets/5.jpeg"],
+    ["assets/6.jpeg"],
+    ["assets/7.jpeg"],
+    ["assets/8.jpeg"],
+    ["assets/9.jpeg"],
+    ["assets/10.jpeg"],
+    ["assets/11.jpeg"],
+    ["assets/12.jpeg"],
+    ["assets/13.jpeg"],
+    ["assets/14.jpeg"],
+    ["assets/15.jpeg"],
+    ["assets/16.jpeg"]
 ]
 
 default_example = examples[0]
@@ -473,6 +485,7 @@ with gr.Blocks(css=css, title="EdgeSAM") as demo:
     reset_btn_p.click(reset, outputs=[cond_img_p, segm_img_p])
     tab_p.select(fn=reset_all, outputs=all_outputs)
 
+    cond_img_b.upload(on_image_upload, cond_img_b, [cond_img_b, segm_img_b])
     cond_img_b.select(get_box_with_draw, [cond_img_b], cond_img_b)
     segment_btn_b.click(
         segment_with_box, inputs=[cond_img_b], outputs=[cond_img_b, segm_img_b]
