@@ -476,6 +476,10 @@ with gr.Blocks(css=css, title="EdgeSAM") as demo:
                     # Description
                     gr.Markdown(description_e)
 
+    with gr.Row():
+        with gr.Column(scale=1):
+            gr.Markdown("<center><img src='https://visitor-badge.laobi.icu/badge?page_id=chongzhou/edgesam' alt='visitors'></center>")
+
     cond_img_p.upload(on_image_upload, cond_img_p, [cond_img_p, segm_img_p])
     cond_img_p.select(get_points_with_draw, [cond_img_p, add_or_remove], cond_img_p)
     segment_btn_p.click(
