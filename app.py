@@ -167,8 +167,8 @@ def on_image_upload(image, input_size=1024):
     global_image = copy.deepcopy(image)
     global_image_with_prompt = copy.deepcopy(image)
     print("Image changed")
-    nd_image = np.array(global_image)
-    predictor.set_image(nd_image)
+    # nd_image = np.array(global_image)
+    # predictor.set_image(nd_image)
 
     return image
 
@@ -196,6 +196,7 @@ def segment_with_points(
 ):
     global global_points
     global global_point_label
+    global global_image
     global global_image_with_prompt
 
     x, y = evt.index[0], evt.index[1]
@@ -212,6 +213,9 @@ def segment_with_points(
         fill=point_color,
     )
     image = global_image_with_prompt
+
+    nd_image = np.array(global_image)
+    predictor.set_image(nd_image)
 
     if ENABLE_ONNX:
         global_points_np = np.array(global_points)[None]
@@ -263,6 +267,7 @@ def segment_with_box(
 ):
     global global_box
     global global_image
+    global global_image
     global global_image_with_prompt
 
     x, y = evt.index[0], evt.index[1]
@@ -296,6 +301,8 @@ def segment_with_box(
         )
 
         global_box_np = np.array(global_box)
+        nd_image = np.array(global_image)
+        predictor.set_image(nd_image)
         if ENABLE_ONNX:
             point_coords = global_box_np.reshape(2, 2)[None]
             point_labels = np.array([2, 3])[None]
