@@ -416,4 +416,4 @@ with gr.Blocks(css=css, title="EdgeSAM") as demo:
 
 demo.queue()
 # demo.launch(server_name=args.server_name, server_port=args.port)
-demo.launch()
+demo.launch(share=True)
