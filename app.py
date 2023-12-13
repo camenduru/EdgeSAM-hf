@@ -11,7 +11,7 @@ import copy
 import argparse
 
 # Use ONNX to speed up the inference.
-ENABLE_ONNX = True
+ENABLE_ONNX = False
 
 parser = argparse.ArgumentParser(
     description="Host EdgeSAM as a local web service."
